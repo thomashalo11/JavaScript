@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,tr{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Prima riga -->
+    <!---------------------------------------->
+    <table>
+        <tr>
+            <th>CONT</th>
+            <th>NUM</th>
+            <th>SOMMA PREC.</th>
+            <th>MAX SOMMA PREC.</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" id="cont1">
+            </td>
+            <td>
+                <input type="number" id="num1">
+            </td>
+            <td>
+                <input type="number" id="sommaprec1">
+            </td>
+            <td>
+                <input type="text" id="maxsommaprec1">
+            </td>
+        </tr>
+
+        <script>
+            // Variables
+            let cont=document.getElementById("cont1");
+            let num=document.getElementById("num1");
+            let sommaprec=document.getElementById("sommaprec1");
+            let maxsommaprec=document.getElementById("maxsommaprec1");
+
+            // Functions
+            function controllo(){
+                let isEmpty=false;
+                if(cont=="" || num=="")
+                    return isEmpty=true;
+            }
+            // ------------------------------------------------
+            // Calcola
+            function calcola(){
+                let numMaggiori = new Array(10);
+                if(isEmpty==false){
+                    sommaprec=cont+num;
+                    if(cont>sommaprec)
+                        numMaggiori.push(cont);
+                    if(num>sommaprec)
+                        numMaggiori.push(num);
+                }
+            // ------------------------------------------------
+            // Main function
+            }
+            function main(){
+                controllo();
+                calcola();   
+            }
+
+        </script>
+
+</body>
+</html>
