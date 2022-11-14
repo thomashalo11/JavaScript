@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Gives a border to the table -->
+    <style>
+        table,th,td{
+            border:1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    
+    
+    <!-- Table -->
+    <table id="tabella">
+        <tr>
+            <td>Codice cliente</td>
+            <td>
+                <input type="text" id="codicecliente" placeholder="Inserire il codice cliente">
+            </td>
+        </tr>
+        <tr>
+            <td>Kw/h consumati</td>
+            <td>
+                <input type="number" id="consumoinkw" placeholder="Inserire il consumo in kw">
+            </td>  
+        </tr>
+        <tr>
+            <td>Costo Kw/h</td>
+            <td>
+                <input type="number" id?="costoKW" placeholder="Inserire il costo Kw/h"></input>
+            </td>
+        </tr>
+        <tr>
+            <td>IVA</td>
+            <td>
+                <input type="number" id?="IVA" placeholder="Inserire l' IVA"></input>
+            </td>
+        </tr>
+        <tr>
+            <td>Canone</td>
+            <td>
+                <input type="number" id?="canone" placeholder="Inserire il canone"></input>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="inserisci()" id="inserisci">Inserisci</button>    
+            </td>
+            <td>  
+                <button onclick="calcola()" id="calcola">Calcola</button>        
+            </td>
+        </tr>
+    <!---------------------------------------->
+    <!-- Script -->
+        <script>
+            let codclient=document.getElementById("codicecliente");
+            let costokwh=document.getElementById("costoKW");
+            let iva=document.getElementById("IVA");
+            let canone=document.getElementById("canone");
+
+
+            function controllo(){
+                // Niente regex che sennò ci mettevo troppo per farlo corretto
+                if(codclient=="" || costokwh=="" || iva=="" || canone=="")
+                    alarm("Non sono state compilate tutte le sezioni");
+                if(costokwh==0 || iva==0 || canone==0)
+                    alarm("Il valore dev'essere maggiore di 0")
+            }
+            // Inserisci
+            function inserisci(){
+                controllo();
+                
+            }
+            // ------------------------------------------------
+            // Calcola
+            
+            function calcola(){
+                
+                const tab=document.getElementById("tabella");
+                const tbody=tab.children[1];
+                const codiceCliente=stringa=tbody.innerHTML;
+                
+                stringa+=`<tr><td>${codiceCliente}</td>`;
+                stringa+=`<td>${kwConsumati}*${costo}*${costoConsumo.toFixed(2)}€</td>`;
+                stringa+=`<td>${canone}€</td>`;
+                stringa+=`<td>${costoConsumo}*${IVA*100}%=${costoIva.tofixed(2)}€</td>`;
+                stringa+=`<td>${totale.toFixed(2)}€</td></tr>`;
+                
+                tbody.innerHTML=stringa;
+            }
+            // ------------------------------------------------
+        </script>
+</body>
+</html>
