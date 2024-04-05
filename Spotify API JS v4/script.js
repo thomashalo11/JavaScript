@@ -1,4 +1,4 @@
-var access_token = "BQB9K2BDYsKwQptJbFuOi6kGFPr6lbTPejkxZM92d_RYLdlYe8Z7NSoDkpeXIqmPi9e0_4bPW7ek3AVcd0EX1OyqyRaP7hx0-eSA8jFvUIR34tLEeHULnz8dJpO5yP0UhC7t2eTItxoSsIg0QXzL6618JqUeCGm1Z-p8wQ4mIjxZiHV1laCxAUWp3mcG5TpwRC5t4cbIwg0gXe1jCMg440le";
+var access_token = "BQBVrbdfE7VGi2-47WhNDKKfOkTaHBWa2Q0dgVDDHxXYhN31Cd6g1_A47poW6NG4LnNzinro2CQjSjO4We8UUARt-2YmUFC4hw9XMgc5Np6qXYyDzejBvBrIKXPje9MH8R9P6ohS-ZzxeJ51IB3CQH3qt6JHLT2RRIRFQD-9GxphU5VPLzchLmcYSxQs09HYl6kcyDiS6fou_l2DdEDhgBbe";
 
 async function fetchTracks() {
     try {
@@ -38,8 +38,11 @@ async function renderTable() {
 
         let tbodyAlbumTracks = "";
         jsonTracksData['items'].forEach(song => {
-            tbodyAlbumTracks += ``;
+            tbodyAlbumTracks += `<tr><button onclick="playSong('${song['track']['id']}', '${song['track']['name']}')"</tr>`;
+            tbodyAlbumTracks += `<tr><td>${song['track']['name']}</td></tr>`;
+            tbodyAlbumTracks += `<tr><td>${song['track']['duration_ms']}</td></tr>`
         })
+        document.getElementById("albumTracks").hidden = false;
 
     } catch (error) {
         console.error("Errore durante il rendering della tabella: ", error);
@@ -85,4 +88,5 @@ async function playSong(songId, songTitle) {
     playerDiv.innerHTML = playerHTML;
 }
 
+// async function displayAlbumTracks(album_id)
 playSong(`${song['track']['id']}, ${songTitle}`);
